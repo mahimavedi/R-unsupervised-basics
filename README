@@ -1,0 +1,10 @@
+# Download the data from url "www.url.csv"
+data.df <- read.csv(url("www.url.csv"))
+
+# Convert the data to matrix selecting specific rows
+matrix.data <- as.matrix(data.df [1:3, ])
+#rownames
+row.names(matrix.data) <- data.df$new
+# Create new vector
+new_vector<- as.numeric(data.df$newvector == "x")
+#PCA analysis
