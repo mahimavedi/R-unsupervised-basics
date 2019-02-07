@@ -1,0 +1,8 @@
+PCA analysis
+principle.component <- prcomp(data, scale = TRUE)
+each.component.var <- principle.component$sdev^2
+each.principle.component.variance <- each.component.var/ sum(each.component.var)
+# Plot variance
+plot(each.principle.component.variance, xlab = "label",
+     ylab = "label",
+     ylim = c(0, 1), type = "b")
