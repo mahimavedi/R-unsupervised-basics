@@ -8,3 +8,43 @@ row.names(matrix.data) <- data.df$new
 # Create new vector
 new_vector<- as.numeric(data.df$newvector == "x")
 #PCA analysis
+
+#creating clustering model
+cluster_model <- dist(data)
+#cutree() to cut the hierarchial tree using h or k values
+#Linkage methods
+complete_clust<- hclust(dist(data), method = "complete")
+# scale data
+data.scaled <- scale(data)
+scaled.hierarchial.model<- hclust(dist(data.scaled), method = "complete")
+
+# K means clustering with 
+kmeans(dataset, centres = centre value, nstart = number of times)
+#plot with plot function
+# Initialize total within sum of squares error: wss
+wss <- 0
+# Look over 1 to 16 possible clusters
+for (i in 1:16) {
+  # Fit the model: fit.model
+  fit.model <- kmeans(data, centers = i, nstart = 20, iter.max = 50)
+  # Save the within cluster sum of squares
+  wss[i] <- fit.model$tot.withinss
+}
+
+# plot function
+plot(1:16, wss, type = "b", 
+     xlab = "label x", 
+     ylab = "label y")
+
+# Select number of clusters
+k <- 
+
+# Build model with k clusters: k.model
+k.model <- kmeans(data, centers = k, nstart = 20, iter.max = 50)
+
+
+# Plot of variable1 vs. variable2 by cluster membership
+plot(data[, c("variable1", "variable2")],
+     col = k.model$cluster,
+     main = paste("heading", k, "clusters"),
+     xlab = "variable1", ylab = "variable2")
